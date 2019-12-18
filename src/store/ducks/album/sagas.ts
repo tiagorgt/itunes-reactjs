@@ -5,9 +5,9 @@ import { loadSuccess, loadFailure } from './actions';
 
 export function* load() {
   try {
-    const response = yield call(api.get, '?id=5869117&entity=album&sort=recent');
-
-    yield put(loadSuccess(response.data.results));
+    const response = yield call(api.get, '/lookup?id=5869117&entity=album&sort=recent');
+    const results: any[] = response.data.results;
+    yield put(loadSuccess(results.slice(1)));
   } catch (err) {
     yield put(loadFailure());
   }

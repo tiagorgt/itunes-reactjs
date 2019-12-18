@@ -14,7 +14,7 @@
     wrapperType: string,
     collectionType: string,
     artistId: number,
-    collectionId: string,
+    collectionId: number,
     amgArtistId: string,
     artistName: string,
     collectionName: string,

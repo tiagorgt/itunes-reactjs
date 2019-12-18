@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { ApplicationState } from '../../store';
-import * as SongActions from '../../store/ducks/artist/actions';
+import * as SongActions from '../../store/ducks/song/actions';
 import { Song } from '../../store/ducks/song/types';
 
 
@@ -11,23 +11,27 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  loadRequest(): void
+  loadRequest(albumId: number): void
 }
 
-type Props = StateProps & DispatchProps
+interface OwnProps {
+  albumId: number
+}
+
+type Props = StateProps & DispatchProps & OwnProps
 
 class SongComponent extends Component<Props> {
   componentDidMount() {
-    const { loadRequest } = this.props;
+    const { loadRequest, albumId } = this.props;
 
-    loadRequest();
+    loadRequest(albumId);
   }
 
   render() {
     const { songs } = this.props;
 
     return (
-    <div>{songs}</div>
+      songs.map(song => <div key={song.trackId}>{song.trackId}</div>)
     );
   }
 }

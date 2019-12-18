@@ -1,0 +1,17 @@
+.album-artwork {
+    display: block;
+    vertical-align: middle;
+    width: 250px;
+    height: 250px;
+    border-radius: 5px;
+    padding: 5px;
+    background-color: black;
+    margin-bottom: 15px;
+}
+
+.album-wrapper {
+    float: right;
+    margin-bottom: 30px;
+    display: block;
+    width: 250px;
+}
