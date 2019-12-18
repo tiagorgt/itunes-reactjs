@@ -7,10 +7,10 @@ import { ApplicationState } from '../../store';
 import * as AlbumActions from '../../store/ducks/album/actions';
 import { Album } from '../../store/ducks/album/types';
 import SongComponent from '../Song';
-import { Row, Col } from 'antd';
-import './index.css';import { Typography } from 'antd';
+import { Row, Col, Divider, Button, Icon } from 'antd';
+import './index.css'; import { Typography } from 'antd';
 
-const { Paragraph } = Typography;
+const { Paragraph, Text, Title } = Typography;
 
 interface StateProps {
   albums: Album[]
@@ -39,12 +39,17 @@ class AlbumComponent extends Component<Props> {
             <Col span={8}>
               <div className="album-wrapper">
                 <img className="album-artwork" src={album.artworkUrl100.replace('100x100', '250x250')}></img>
+                <Text type="secondary">{album.trackCount + ' Songs'}</Text>
+                <Divider></Divider>
+                <Title level={4}>EDITOR'S NOTES</Title>
                 <Paragraph>
                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </Paragraph>
               </div>
             </Col>
             <Col span={16}>
+              <Title level={4}>{album.collectionName}</Title>
+              <Button type="danger" ghost>Listen on <strong>Apple Music</strong>&nbsp;<Icon type="select" /></Button>
               <SongComponent albumId={album.collectionId} />
             </Col>
           </Row>

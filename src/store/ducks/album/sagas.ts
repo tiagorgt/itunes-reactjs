@@ -5,7 +5,7 @@ import { loadSuccess, loadFailure } from './actions';
 
 export function* load() {
   try {
-    const response = yield call(api.get, '/lookup?id=5869117&entity=album&sort=recent');
+    const response = yield call(api.get, '/lookup?id=5869117&entity=album&limit=2');
     const results: any[] = response.data.results;
     yield put(loadSuccess(results.slice(1)));
   } catch (err) {
