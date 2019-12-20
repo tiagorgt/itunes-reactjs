@@ -25,7 +25,7 @@
   * State type
   */
 export interface ArtistState {
-    readonly data?: Artist
+    readonly data: Artist
     readonly loading: boolean
     readonly error: boolean
 }

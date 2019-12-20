@@ -5,11 +5,13 @@ import createSagaMiddleware from 'redux-saga';
 import rootSaga from './ducks/rootSaga';
 import { AlbumState } from './ducks/album/types';
 import { SongState } from './ducks/song/types';
+import { FeaturedArtistsState } from './ducks/featured-artists/types';
 
 export interface ApplicationState {
     artist: ArtistState;
     album: AlbumState;
     song: SongState;
+    featuredArtists: FeaturedArtistsState;
 }
 
 const sagaMiddleware = createSagaMiddleware();

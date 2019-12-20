@@ -11,12 +11,12 @@ import { Row, Col, List, Icon, Button } from 'antd';
 import Title from 'antd/lib/typography/Title';
 import Text from 'antd/lib/typography/Text';
 import { Typography } from 'antd';
-import moment from 'moment';
+import FeaturedArtistsComponent from '../FeaturedArtists';
 
 const { Paragraph } = Typography;
 
 interface StateProps {
-  artist?: Artist
+  artist: Artist
 }
 
 interface DispatchProps {
@@ -41,7 +41,7 @@ class ArtistComponent extends Component<Props> {
         description: 'New Orleans, LA'
       }, {
         title: 'GENRE',
-        description: artist?.primaryGenreName
+        description: artist.primaryGenreName
       }, {
         title: 'BORN',
         description: 'Sep 27, 1982'
@@ -54,7 +54,7 @@ class ArtistComponent extends Component<Props> {
         <img className="artist-component-artist-cover hide-desktop" src={`${process.env.PUBLIC_URL}/assets/img/lil-wayne-cover-mobile.jpg`}></img>
         <div className="artist-component-container">
           <div className="artist-component-wrapper">
-            <Title level={2}>{artist?.artistName}</Title>
+            <Title level={2}>{artist.artistName}</Title>
             <Row gutter={16}>
               <Col sm={16}>
                 <Paragraph className="hide-mobile">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</Paragraph>
@@ -77,7 +77,8 @@ class ArtistComponent extends Component<Props> {
                 />
               </Col>
             </Row>
-            <AlbumComponent />
+            <AlbumComponent artistId={artist.artistId}/>
+            <FeaturedArtistsComponent artistName={artist.artistName}/>
           </div>
         </div>
       </div>

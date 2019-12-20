@@ -2,6 +2,16 @@ import { ArtistState, ArtistTypes } from './types';
 import { Reducer } from 'redux';
 
 const INITIAL_STATE: ArtistState = {
+    data: {
+        amgArtistId: 0,
+        artistId: 0,
+        artistLinkUrl: '',
+        artistName: '',
+        artistType: '',
+        primaryGenreId: 0,
+        primaryGenreName: '',
+        wrapperType: ''
+    },
     error: false,
     loading: false
 };

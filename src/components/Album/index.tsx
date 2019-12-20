@@ -16,16 +16,25 @@ interface StateProps {
 }
 
 interface DispatchProps {
-  loadRequest(): void
+  loadRequest(artistId: number): void
 }
 
-type Props = StateProps & DispatchProps
+interface OwnProps {
+  artistId: number
+}
+
+type Props = StateProps & DispatchProps & OwnProps
 
 class AlbumComponent extends Component<Props> {
-  componentDidMount() {
-    const { loadRequest } = this.props;
+  artistId: number = 0;
 
-    loadRequest();
+  componentWillReceiveProps(newProps: Props) {
+    const { loadRequest } = newProps;
+
+    if (this.artistId !== newProps.artistId) {
+      this.artistId = newProps.artistId;
+      loadRequest(this.artistId);
+    }
   }
 
   render() {
