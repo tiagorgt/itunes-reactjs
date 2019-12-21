@@ -18,6 +18,15 @@
     margin-bottom: 15px;
 }
 
+.icon-external:after {
+    font: icomon;
+    content: "\e900";
+}
+
+section.ant-layout {
+    background: #fff;
+}
+
 /**
  * Album component begin
  */
@@ -100,7 +109,7 @@
   * Artist component begin
   */
 
-.artist-component-artist-cover {
+.artist-cover-component {
     object-fit: cover;
     width: 100%;
     height: 250px;
@@ -151,6 +160,11 @@
     height: 48px;
 }
 
+.song-component-list li:hover {
+    background-color: #f8f8f8;
+    cursor: pointer;
+}
+
 /**
    * Song component end
    */
@@ -159,16 +173,16 @@
    * Featured artists component begin
    */
 
-.featured-artists-container {
+.featured-artist-list-component-container {
     max-width: 800px;
     margin: 0 auto;
 }
 
-.featured-artists-list {
+.featured-artist-list-component-list {
     padding: 0;
 }
 
-.featured-artists-item {
+.featured-artist-component-item {
     text-align: center;
     list-style: none;
     display: inline-block;
@@ -177,29 +191,42 @@
     vertical-align: top;
 }
 
-.featured-artists-item h4.ant-typography {
+.featured-artist-component-item:hover {
+    cursor: pointer;
+}
+
+.featured-artist-component-item:hover .ant-typography.ant-typography-secondary {
+    text-decoration: underline;
+    color: rgba(0, 0, 0, 0.45);
+}
+
+.featured-artist-component-item:hover .ant-typography {
+    text-decoration: underline;
+}
+
+.featured-artist-component-item h4.ant-typography {
     font-size: 14px;
     margin-bottom: 0;
 }
 
-.featured-artists-item .ant-avatar {
+.featured-artist-component-item .ant-avatar {
     margin-bottom: 10px;
 }
 
 @media screen and (max-width: 767px) {
-    li.featured-artists-item:nth-child(6) {
+    li.featured-artist-component-item:nth-child(6) {
         display: none;
     }
 }
 
-@media screen and (max-width: 610px) {    
-    li.featured-artists-item:nth-child(5) {
+@media screen and (max-width: 610px) {
+    li.featured-artist-component-item:nth-child(5) {
         display: none;
     }
 }
 
-@media screen and (max-width: 575px) {    
-    li.featured-artists-item:nth-child(4) {
+@media screen and (max-width: 575px) {
+    li.featured-artist-component-item:nth-child(4) {
         display: none;
     }
 }
@@ -207,3 +234,17 @@
 /**
    * Featured artists component end
    */
+
+/**
+   * Artist cover component begin
+   */
+
+.artist-cover-component {
+    object-fit: cover;
+    width: 100%;
+    height: 250px;
+}
+
+/**
+  * Artist cover component end
+  */

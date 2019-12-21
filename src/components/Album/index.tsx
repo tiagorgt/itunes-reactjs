@@ -65,7 +65,7 @@ class AlbumComponent extends Component<Props> {
               </Col>
               <Col sm={16}>
                 <Title className="hide-mobile" level={4}>{album.collectionName}</Title>
-                <Button className="mb-15 hide-mobile" type="danger" ghost>Listen on <strong>Apple Music</strong>&nbsp;<Icon type="select" /></Button>
+                <Button className="mb-15 hide-mobile" type="danger" ghost>Listen on&nbsp;<strong>Apple Music&nbsp;<i className="icon-arrow-up-right"></i></strong></Button>
                 <SongComponent albumId={album.collectionId} />
               </Col>
             </Row>

@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { bindActionCreators, Dispatch } from 'redux';
 import { ApplicationState } from '../../store';
 import * as FeaturedArtistsActions from '../../store/ducks/featured-artists/actions';
-import { FeaturedArtists } from '../../store/ducks/featured-artists/types';
-import { List, Avatar, Row, Col } from 'antd';
 import Title from 'antd/lib/typography/Title';
-import Text from 'antd/lib/typography/Text';
+import FeaturedArtistComponent from '../FeaturedArtist';
+import { Artist } from '../../store/ducks/artist/types';
 
 interface StateProps {
-  featuredArtists: FeaturedArtists[]
+  featuredArtists: Artist[]
 }
 
 interface DispatchProps {
@@ -22,8 +21,9 @@ interface OwnProps {
 
 type Props = StateProps & DispatchProps & OwnProps
 
-class FeaturedArtistsComponent extends Component<Props> {
+class FeaturedArtistListComponent extends Component<Props> {
   artistName: string = '';
+  artistPictureUrl: string = '';
 
   componentWillReceiveProps(newProps: Props) {
     const { loadRequest } = newProps;
@@ -38,15 +38,11 @@ class FeaturedArtistsComponent extends Component<Props> {
     const { featuredArtists } = this.props;
 
     return (
-      <div className="featured-artists-container">
-        <ul className="featured-artists-list">
+      <div className="featured-artist-list-component-container">
+        <ul className="featured-artist-list-component-list">
         <Title level={4}>Featured Artists</Title>
           {featuredArtists.map(featuredArtist =>
-            <li className="featured-artists-item">
-              <Avatar size={120} src={`${process.env.PUBLIC_URL}/assets/img/lil-wayne-cover-desktop.jpg`} />
-              <Title level={4}>{featuredArtist.artistName}</Title>
-              <Text type="secondary">{featuredArtist.primaryGenreName}</Text>
-            </li>
+            <FeaturedArtistComponent key={featuredArtist.artistId} artist={featuredArtist}/>
           )}
         </ul>
       </div>
@@ -60,4 +56,4 @@ const mapStateToProps = (state: ApplicationState) => ({
 
 const mapDispatchToProps = (dispatch: Dispatch) => bindActionCreators(FeaturedArtistsActions, dispatch);
 
-export default connect(mapStateToProps, mapDispatchToProps)(FeaturedArtistsComponent);
+export default connect(mapStateToProps, mapDispatchToProps)(FeaturedArtistListComponent);

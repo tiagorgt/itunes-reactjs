@@ -1,3 +1,5 @@
+import { Artist } from '../artist/types';
+
 /**
  * Action types
  */
@@ -8,24 +10,10 @@
  }
 
  /**
-  * Data types
-  */
- export interface FeaturedArtists {
-    wrapperType: string,
-    artistType: string,
-    artistName: string,
-    artistLinkUrl: string,
-    artistId: number,
-    amgFeaturedArtistsId: number,
-    primaryGenreName: string,
-    primaryGenreId: number
- }
-
- /**
   * State type
   */
 export interface FeaturedArtistsState {
-    readonly data: FeaturedArtists[]
+    readonly data: Artist[]
     readonly loading: boolean
     readonly error: boolean
 }
